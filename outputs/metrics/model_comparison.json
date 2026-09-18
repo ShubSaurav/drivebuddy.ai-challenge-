@@ -1,0 +1,182 @@
+{
+  "Experiment 1 (Raw Text)": {
+    "Logistic Regression (Champion)": {
+      "cv_accuracy_mean": 0.675875190258752,
+      "cv_f1_mean": 0.628744559174887,
+      "cv_roc_auc_mean": 0.7618337342956429,
+      "test_accuracy": 0.6153846153846154,
+      "test_precision": 0.5217391304347826,
+      "test_recall": 0.6486486486486487,
+      "test_f1": 0.5783132530120482,
+      "test_f1_macro": 0.6123889497383473,
+      "test_roc_auc": 0.6836836836836837,
+      "test_pr_auc": 0.5669666449019262,
+      "confusion_matrix": [
+        [
+          32,
+          22
+        ],
+        [
+          13,
+          24
+        ]
+      ]
+    },
+    "Linear SVM": {
+      "cv_accuracy_mean": 0.686986301369863,
+      "cv_f1_mean": 0.5837818811778851,
+      "cv_roc_auc_mean": 0.753392141138733,
+      "test_accuracy": 0.5934065934065934,
+      "test_precision": 0.5,
+      "test_recall": 0.4594594594594595,
+      "test_f1": 0.4788732394366197,
+      "test_f1_macro": 0.5727699530516431,
+      "test_roc_auc": 0.6636636636636637,
+      "test_pr_auc": 0.5496160486029622,
+      "confusion_matrix": [
+        [
+          37,
+          17
+        ],
+        [
+          20,
+          17
+        ]
+      ]
+    },
+    "Complement Naive Bayes": {
+      "cv_accuracy_mean": 0.6590943683409437,
+      "cv_f1_mean": 0.6776488073330179,
+      "cv_roc_auc_mean": 0.7381769580326116,
+      "test_accuracy": 0.6153846153846154,
+      "test_precision": 0.5142857142857142,
+      "test_recall": 0.972972972972973,
+      "test_f1": 0.6728971962616822,
+      "test_f1_macro": 0.6031152647975078,
+      "test_roc_auc": 0.6526526526526526,
+      "test_pr_auc": 0.48337910020643404,
+      "confusion_matrix": [
+        [
+          20,
+          34
+        ],
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    "Voting Ensemble (LR+SVM+CNB)": {
+      "cv_accuracy_mean": 0.672945205479452,
+      "cv_f1_mean": 0.6757010053531793,
+      "cv_roc_auc_mean": 0.7640363539160653,
+      "test_accuracy": 0.6043956043956044,
+      "test_precision": 0.5079365079365079,
+      "test_recall": 0.8648648648648649,
+      "test_f1": 0.64,
+      "test_f1_macro": 0.6004878048780489,
+      "test_roc_auc": 0.6801801801801802,
+      "test_pr_auc": 0.5413771767453377,
+      "confusion_matrix": [
+        [
+          23,
+          31
+        ],
+        [
+          5,
+          32
+        ]
+      ]
+    }
+  },
+  "Experiment 2 (Leakage-Controlled)": {
+    "Logistic Regression (Champion)": {
+      "cv_accuracy_mean": 0.6646879756468798,
+      "cv_f1_mean": 0.6096261934786524,
+      "cv_roc_auc_mean": 0.749115209836942,
+      "test_accuracy": 0.5824175824175825,
+      "test_precision": 0.4888888888888889,
+      "test_recall": 0.5945945945945946,
+      "test_f1": 0.5365853658536586,
+      "test_f1_macro": 0.5782926829268293,
+      "test_roc_auc": 0.6436436436436437,
+      "test_pr_auc": 0.4934857373520326,
+      "confusion_matrix": [
+        [
+          31,
+          23
+        ],
+        [
+          15,
+          22
+        ]
+      ]
+    },
+    "Linear SVM": {
+      "cv_accuracy_mean": 0.6785007610350076,
+      "cv_f1_mean": 0.5718649022934522,
+      "cv_roc_auc_mean": 0.7364875701684043,
+      "test_accuracy": 0.5714285714285714,
+      "test_precision": 0.4666666666666667,
+      "test_recall": 0.3783783783783784,
+      "test_f1": 0.417910447761194,
+      "test_f1_macro": 0.5393900064892927,
+      "test_roc_auc": 0.6296296296296297,
+      "test_pr_auc": 0.46880735095414583,
+      "confusion_matrix": [
+        [
+          38,
+          16
+        ],
+        [
+          23,
+          14
+        ]
+      ]
+    },
+    "Complement Naive Bayes": {
+      "cv_accuracy_mean": 0.6397260273972603,
+      "cv_f1_mean": 0.656058770979453,
+      "cv_roc_auc_mean": 0.7342207965784551,
+      "test_accuracy": 0.6263736263736264,
+      "test_precision": 0.5223880597014925,
+      "test_recall": 0.9459459459459459,
+      "test_f1": 0.6730769230769231,
+      "test_f1_macro": 0.6185897435897436,
+      "test_roc_auc": 0.6321321321321322,
+      "test_pr_auc": 0.47411203553654224,
+      "confusion_matrix": [
+        [
+          22,
+          32
+        ],
+        [
+          2,
+          35
+        ]
+      ]
+    },
+    "Voting Ensemble (LR+SVM+CNB)": {
+      "cv_accuracy_mean": 0.6535388127853881,
+      "cv_f1_mean": 0.642581622985787,
+      "cv_roc_auc_mean": 0.7470195134990645,
+      "test_accuracy": 0.6263736263736264,
+      "test_precision": 0.5263157894736842,
+      "test_recall": 0.8108108108108109,
+      "test_f1": 0.6382978723404256,
+      "test_f1_macro": 0.6259671179883946,
+      "test_roc_auc": 0.6411411411411412,
+      "test_pr_auc": 0.48332234569600363,
+      "confusion_matrix": [
+        [
+          27,
+          27
+        ],
+        [
+          7,
+          30
+        ]
+      ]
+    }
+  }
+}
