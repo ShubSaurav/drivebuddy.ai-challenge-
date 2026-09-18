@@ -17,8 +17,10 @@
 ---
 
 > [!TIP]
-> 📘 **Looking for an in-depth, plain-English explanation?**  
-> Read the complete, comprehensive technical breakdown: [`SHUBHAM_SAURAV_CHALLENGE_GUIDE.md`](SHUBHAM_SAURAV_CHALLENGE_GUIDE.md) explaining the exact problem, the 99.5% hashtag spam dilemma, how each pipeline layer was engineered, and why the results improved by **+28% recall**.
+> 📊 **Official Data Analysis & Master Reports:**  
+> - 📄 **Formal Technical Data Analysis Report:** [`DATA_ANALYSIS_REPORT.md`](DATA_ANALYSIS_REPORT.md) — Exhaustive statistical profiling, leakage audit, preprocessing, and error case studies.
+> - 📘 **Master Challenge Guide:** [`SHUBHAM_SAURAV_CHALLENGE_GUIDE.md`](SHUBHAM_SAURAV_CHALLENGE_GUIDE.md) — Plain-English & architectural explanation of the entire project.
+> - 📑 **Publication PDF Document:** [`DrivebuddyAI_PavBhaji_Data_Analysis_Report.pdf`](DrivebuddyAI_PavBhaji_Data_Analysis_Report.pdf) — 4-page formal executive report.
 
 ---
 
