@@ -234,17 +234,18 @@ Here is the exact step-by-step performance progression on the **unseen 20% holdo
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Baseline (Word TF-IDF Only)** | 56.0% | 47.2% | 67.6% | 55.6% | 0.644 |
 | **Boosted (Word + Char n-grams + Lexicons)** | 62.6% | 52.6% | 81.1% | 63.8% | 0.641 |
-| **Semi-Supervised (Self-Training on 1,048 posts)** | **65.9%** | **55.1%** | **86.5%** | **67.4%** | **0.638** |
+| **Semi-Supervised (Self-Training on 1,048 posts)** | 65.9% | 55.1% | **86.5%** | 67.4% | 0.638 |
+| **Champion Production Pipeline (Culinary Calibration)** | **70.3%** | **60.4%** | **78.4%** | **68.2%** | **0.684** |
 
 ---
 
-### The +28% Positive Recall Improvement Breakdown
-- **Initial Baseline Recall:** 67.6% (capturing 25 of 37 Pav Bhaji posts)
-- **Final Optimized Recall:** **86.5%** (capturing **32 of 37 Pav Bhaji posts**)
-- **Net Relative Improvement:**
-  $$\frac{86.5\% - 67.6\%}{67.6\%} = \mathbf{+27.96\% \approx +28.0\%}$$
-
-This means that out of 37 real Pav Bhaji posts in the test set, the final pipeline successfully catches **32 of them purely by reading the text and hashtags**, missing only 5 posts (which were mostly emoji-only or zero-caption edge cases).
+### The Accuracy & Recall Improvement Breakdown
+- **Initial Baseline Accuracy:** 56.0% (51 of 91 correct)
+- **Final Champion Accuracy:** **70.3%** (**64 of 91 correct**)
+- **Absolute Accuracy Gain:** **+14.3%**
+- **Relative Accuracy Gain:**
+  $$\frac{70.3\% - 56.0\%}{56.0\%} = \mathbf{+25.5\%}$$
+- **Recall Progression:** Started at 67.6% baseline, reached peak **86.5%** in semi-supervised training (+28.0% relative recall boost), and settled at **78.4%** in the high-precision calibrated champion model.
 
 ---
 

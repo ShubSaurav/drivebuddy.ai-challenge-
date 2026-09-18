@@ -475,7 +475,11 @@ def plot_feature_importance(wrapper: EnhancedPipelineWrapper, output_fig_dir: st
 
     word_names = wrapper.union_tfidf.transformer_list[0][1].get_feature_names_out()
     char_names = wrapper.union_tfidf.transformer_list[1][1].get_feature_names_out()
-    meta_names = np.array(["word_count", "char_count", "avg_w_len", "pb_hits", "other_hits", "pb_ratio", "likes", "comments"])
+    meta_names = np.array([
+        "word_count", "char_count", "avg_w_len", "pb_hits", "other_hits",
+        "pb_density", "other_density", "diff_density", "pb_ratio",
+        "likes", "comments", "num_tags", "tag_ratio"
+    ])
 
     all_names = np.concatenate([word_names, char_names, meta_names])
     coefs = clf.coef_[0]
@@ -520,8 +524,8 @@ def train_and_save_final_model(
     y_train = train_df["label"].values.astype(int)
     y_test = test_df["label"].values.astype(int)
 
-    champion = LogisticRegression(C=1.2, class_weight="balanced", max_iter=1000, random_state=42)
-    wrapper = EnhancedPipelineWrapper(champion, threshold=0.50)
+    champion = LogisticRegression(C=2.0, class_weight="balanced", max_iter=1000, random_state=42)
+    wrapper = EnhancedPipelineWrapper(champion, threshold=0.48, penalty=0.10, boost=0.10)
     wrapper.fit(train_df, y_train)
 
     # Save wrapper pipeline

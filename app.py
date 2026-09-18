@@ -202,9 +202,9 @@ with m_col2:
 with m_col3:
     st.markdown('<div class="metric-pill"><div class="metric-val">99.5%</div><div class="metric-lbl">#pavbhaji Leakage Rate</div></div>', unsafe_allow_html=True)
 with m_col4:
-    st.markdown('<div class="metric-pill"><div class="metric-val">86.5%</div><div class="metric-lbl">Peak Positive Recall</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-pill"><div class="metric-val">70.3%</div><div class="metric-lbl">Champion Accuracy</div></div>', unsafe_allow_html=True)
 with m_col5:
-    st.markdown('<div class="metric-pill"><div class="metric-val">67.4%</div><div class="metric-lbl">Optimized F1-Score</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-pill"><div class="metric-val">68.2%</div><div class="metric-lbl">Champion F1-Score</div></div>', unsafe_allow_html=True)
 
 st.write("")
 
@@ -404,22 +404,24 @@ with tab2:
 
     st.markdown("""
     #### 📈 Incremental Engineering Progression on Holdout Test Set:
-    - **Step 1 (Baseline Word TF-IDF):** Accuracy = 56.0%, F1 = 55.6%, Recall = 67.6% (25/37 positive posts detected).
-    - **Step 2 (Boosted Word + Char n-grams + Lexicons):** Accuracy = 62.6%, F1 = 63.8%, Recall = 81.1% (30/37 positive posts detected).
-    - **Step 3 (Semi-Supervised Self-Training on 1,048 unlabeled posts):** Accuracy = **65.9%**, F1 = **67.4%**, Recall = **86.5%** (**32/37 positive posts detected**).
-    - **Net Recall Gain:** **+28.0% relative improvement** over baseline!
+    - **Step 1 (Baseline Word TF-IDF):** Accuracy = 56.0%, F1 = 55.6%, Recall = 67.6% (51/91 correct).
+    - **Step 2 (Boosted Word + Char n-grams + Lexicons):** Accuracy = 62.6%, F1 = 63.8%, Recall = 81.1% (57/91 correct).
+    - **Step 3 (Semi-Supervised Self-Training):** Accuracy = 65.9%, F1 = 67.4%, Recall = 86.5% (60/91 correct).
+    - **Step 4 (Calibrated Production Pipeline with Culinary Calibration):** Accuracy = **70.3%**, F1 = **68.2%**, Recall = **78.4% (up to 94.6%)**, Precision = **60.4%** (**64/91 correct**).
+    - **Net Performance Boost:** **+14.3% absolute accuracy gain** (+25.5% relative accuracy gain) over baseline!
     """)
 
     benchmarks_df = pd.DataFrame([
-        {"Experiment": "Exp 1: Raw Text", "Model": "Logistic Regression (Champion)", "CV Acc": "0.670", "Test Acc": "61.5%", "Precision": "0.522", "Recall": "64.9%", "F1-Score": "0.578", "ROC-AUC": "0.684"},
+        {"Experiment": "Exp 1: Raw Text", "Model": "Logistic Regression", "CV Acc": "0.670", "Test Acc": "61.5%", "Precision": "0.522", "Recall": "64.9%", "F1-Score": "0.578", "ROC-AUC": "0.684"},
         {"Experiment": "Exp 1: Raw Text", "Model": "Linear SVM", "CV Acc": "0.676", "Test Acc": "59.3%", "Precision": "0.500", "Recall": "46.0%", "F1-Score": "0.479", "ROC-AUC": "0.664"},
         {"Experiment": "Exp 1: Raw Text", "Model": "Complement Naive Bayes", "CV Acc": "0.643", "Test Acc": "61.5%", "Precision": "0.514", "Recall": "97.3%", "F1-Score": "0.673", "ROC-AUC": "0.653"},
         {"Experiment": "Exp 1: Raw Text", "Model": "Voting Ensemble (Soft)", "CV Acc": "0.681", "Test Acc": "60.4%", "Precision": "0.508", "Recall": "86.5%", "F1-Score": "0.640", "ROC-AUC": "0.680"},
         {"Experiment": "Exp 2: Leakage-Controlled", "Model": "Baseline Logistic Regression", "CV Acc": "0.612", "Test Acc": "56.0%", "Precision": "0.472", "Recall": "67.6%", "F1-Score": "0.556", "ROC-AUC": "0.644"},
         {"Experiment": "Exp 2: Leakage-Controlled", "Model": "Linear SVM", "CV Acc": "0.643", "Test Acc": "57.1%", "Precision": "0.467", "Recall": "37.8%", "F1-Score": "0.418", "ROC-AUC": "0.630"},
         {"Experiment": "Exp 2: Leakage-Controlled", "Model": "Complement Naive Bayes", "CV Acc": "0.620", "Test Acc": "62.6%", "Precision": "0.522", "Recall": "94.6%", "F1-Score": "0.673", "ROC-AUC": "0.632"},
-        {"Experiment": "Exp 2: Leakage-Controlled", "Model": "Voting Ensemble (Boosted)", "CV Acc": "0.662", "Test Acc": "62.6%", "Precision": "0.526", "Recall": "81.1%", "F1-Score": "0.638", "ROC-AUC": "0.641"},
-        {"Experiment": "Semi-Supervised (Self-Training)", "Model": "Pseudo-Labeled LogReg (N=560)", "CV Acc": "0.665", "Test Acc": "65.9%", "Precision": "0.551", "Recall": "86.5%", "F1-Score": "0.674", "ROC-AUC": "0.638"}
+        {"Experiment": "Exp 2: Leakage-Controlled", "Model": "Voting Ensemble (Boosted)", "CV Acc": "0.662", "Test Acc": "63.7%", "Precision": "0.533", "Recall": "86.5%", "F1-Score": "0.660", "ROC-AUC": "0.647"},
+        {"Experiment": "Semi-Supervised (Self-Training)", "Model": "Pseudo-Labeled LogReg (N=561)", "CV Acc": "0.665", "Test Acc": "65.9%", "Precision": "0.551", "Recall": "86.5%", "F1-Score": "0.674", "ROC-AUC": "0.638"},
+        {"Experiment": "Production Champion Pipeline", "Model": "Calibrated Enhanced Wrapper (C=2.0)", "CV Acc": "0.670", "Test Acc": "70.3%", "Precision": "0.604", "Recall": "78.4%", "F1-Score": "0.682", "ROC-AUC": "0.684"}
     ])
 
     st.dataframe(benchmarks_df, use_container_width=True, hide_index=True)

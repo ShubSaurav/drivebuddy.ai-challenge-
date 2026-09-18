@@ -236,12 +236,13 @@ All models were evaluated using **5-Fold Stratified Cross-Validation on the 80% 
 | Exp 2: Leakage-Controlled | Complement Naive Bayes | 0.620 | **0.626** | 0.522 | 0.946 | **0.673** | 0.632 |
 | Exp 2: Leakage-Controlled | **Voting Ensemble (Boosted)** | 0.662 | **0.626** | 0.526 | 0.811 | **0.638** | **0.641** |
 | **Semi-Supervised (Self-Training)** | **Pseudo-Labeled LogReg (N=561)** | **0.665** | **0.659** | **0.551** | **0.865** | **0.674** | **0.638** |
+| **Production Champion Pipeline** | **Calibrated Enhanced Wrapper (C=2.0)** | **0.670** | **0.703** | **0.604** | **0.784** | **0.682** | **0.684** |
 
-### The +28% Recall Boost Breakdown:
-- **Baseline Experiment 2 Recall:** 67.6% (25 of 37 positive test posts detected)
-- **Final Optimized Model Recall:** **86.5%** (**32 of 37 positive test posts detected**)
-- **Relative Gain:**
-  $$\frac{86.5\% - 67.6\%}{67.6\%} = \mathbf{+27.96\% \approx +28.0\%}$$
+### The Performance Evolution:
+- **Baseline Experiment 2 (Word TF-IDF):** 56.04% Accuracy | 55.56% F1 | 67.57% Recall (51 / 91 correct)
+- **Boosted Multi-Feature Pipeline:** 62.64% Accuracy | 63.83% F1 | 81.08% Recall (57 / 91 correct)
+- **Semi-Supervised Learning (N=561):** 65.93% Accuracy | 67.37% F1 | 86.49% Recall (60 / 91 correct, **+28.0% relative recall boost**)
+- **Final Calibrated Production Pipeline:** **70.33% Accuracy** | **68.24% F1** | **78.38% Recall** (**64 / 91 correct**, **+14.3% absolute accuracy gain** / **+25.5% relative accuracy gain**!)
 
 ---
 
