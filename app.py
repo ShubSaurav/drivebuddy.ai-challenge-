@@ -520,3 +520,16 @@ st.markdown("""
     Shubham Saurav — DrivebuddyAI ML Data Pre-Processing Challenge &bull; Built with Python, Scikit-Learn &amp; Streamlit
 </div>
 """, unsafe_allow_html=True)
+
+# ==============================================================================
+# Vercel WSGI / ASGI Export Compatibility
+# Exports top-level `app`, `application`, and `handler` for Vercel deployment
+# ==============================================================================
+try:
+    from api.index import app as _vercel_app
+    app = _vercel_app
+    application = _vercel_app
+    handler = _vercel_app
+except Exception:
+    pass
+
